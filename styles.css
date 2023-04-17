@@ -1,0 +1,109 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+:root {
+    --main-lightgray: rgb(221, 221, 221);
+    /* --main-gray:rgb(201, 199, 199); */
+    --main-gray: rgb(188, 188, 188);
+    --main-darkgray: rgb(127, 127, 127);
+    --main-orange: rgb(204, 102, 1);
+    --main-black: #1c1c1c;
+    --main-white: #f5f6f7;
+
+    --main-lightgray-hover: rgb(221, 221, 221, 0.6);
+    --main-gray-hover: rgb(201, 199, 199, 0.8);
+    --main-gray-hover: rgb(188, 188, 188, 0.8);
+    --main-darkgray-hover: rgb(127, 127, 127, 0.8);
+    --main-orange-hover: rgb(204, 102, 1, 0.85);
+    --main-black-semitransparent: rgb(28, 28, 28, 0.95);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--main-white);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    font-size: 2em;
+    cursor: pointer;
+    border: 1px solid var(--main-white);
+    outline: none;
+}
+
+.button-ac,
+.button-del {
+    background-color: var(--main-gray);
+}
+
+.button-ac:hover,
+.button-del:hover {
+    background-color: var(--main-gray-hover);
+}
+
+.button-operator {
+    background-color: var(--main-orange);
+}
+
+.button-operator:hover {
+    background-color: var(--main-orange-hover);
+}
+
+.button-numeric {
+    background-color: var(--main-lightgray);
+}
+
+.button-numeric:hover {
+    background-color: var(--main-lightgray-hover);
+}
+
+.button-equal {
+    background-color: var(--main-gray);
+}
+
+.button-equal:hover {
+    background-color: var(--main-gray-hover);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 /-1;
+    background-color: var(--main-black-semitransparent);
+    padding: 0 10px;
+
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    color: var(--main-lightgray-hover);
+    font-size: 1.3rem;
+}
+
+.current-operand {
+    color: var(--main-white);
+    font-size: 2rem;
+}
