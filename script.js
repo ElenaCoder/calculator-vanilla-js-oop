@@ -17,28 +17,28 @@ const calculator = new Calculator(
 operatorBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
         calculator.chooseOperation(btn.innerText);
-        calculator.updateDisplay();
+        calculator.updateView();
     });
 });
 
 numberBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
         calculator.appendNumber(btn.innerText);
-        calculator.updateDisplay();
+        calculator.updateView();
     });
 });
 
 equalBtn.addEventListener('click', (btn) => {
     calculator.compute();
-    calculator.updateDisplay();
+    calculator.updateView();
 });
 
 allClearBtn.addEventListener('click', (btn) => {
     calculator.clear();
-    calculator.updateDisplay();
+    calculator.updateView();
 });
 
 deleteBtn.addEventListener('click', (btn) => {
     calculator.delete();
-    calculator.updateDisplay();
+    calculator.updateView();
 });

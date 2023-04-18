@@ -60,8 +60,38 @@ class Calculator {
         this.previousOperand = '';
     }
 
-    updateDisplay() {
-        this.currentOperandTextElem.innerHTML = this.currentOperand;
-        this.previousOperandTextElem.innerHTML = this.previousOperand;
+    getFormattedNumber(number) {
+        let integerDisplay;
+        const stringNumber = number.toString();
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = stringNumber.split('.')[1];
+
+        if (isNaN(integerDigits)) {
+            integerDisplay = '';
+        } else {
+            integerDisplay = integerDigits.toLocaleString('en-US', {
+                maximumFractionDigits: 0,
+            });
+        }
+
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${decimalDigits}`;
+        } else {
+            return integerDisplay;
+        }
+    }
+
+    updateView() {
+        this.currentOperandTextElem.innerText = this.getFormattedNumber(
+            this.currentOperand,
+        );
+
+        if (this.operation != null) {
+            this.previousOperandTextElem.innerText = `${this.getFormattedNumber(
+                this.previousOperand,
+            )} ${this.operation}`;
+        } else {
+            this.previousOperandTextElem.innerText = '';
+        }
     }
 }
