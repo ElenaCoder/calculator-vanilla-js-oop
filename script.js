@@ -37,3 +37,8 @@ allClearBtn.addEventListener('click', (btn) => {
     calculator.clear();
     calculator.updateDisplay();
 });
+
+deleteBtn.addEventListener('click', (btn) => {
+    calculator.delete();
+    calculator.updateDisplay();
+});
