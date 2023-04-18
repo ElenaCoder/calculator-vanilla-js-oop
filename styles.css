@@ -35,8 +35,8 @@ body {
     justify-content: center;
     align-content: center;
     min-height: 100vh;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 70px);
 }
 
 .calculator-grid > button {
@@ -44,6 +44,10 @@ body {
     cursor: pointer;
     border: 1px solid var(--main-white);
     outline: none;
+}
+
+.calculator-grid button:nth-child(17){
+border-radius: 0 0 0 20px;
 }
 
 .button-ac,
@@ -74,6 +78,7 @@ body {
 
 .button-equal {
     background-color: var(--main-gray);
+    border-radius:0 0 20px 0;
 }
 
 .button-equal:hover {
@@ -85,6 +90,7 @@ body {
 }
 
 .output {
+    border-radius:20px 20px 0 0;
     grid-column: 1 /-1;
     background-color: var(--main-black-semitransparent);
     padding: 0 10px;
