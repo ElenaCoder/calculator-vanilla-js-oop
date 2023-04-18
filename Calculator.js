@@ -29,7 +29,34 @@ class Calculator {
         this.currentOperand = '';
     }
 
-    compute() {}
+    compute() {
+        let computationResult;
+        const currentValue = parseFloat(this.currentOperand);
+        const previousValue = parseFloat(this.previousOperand);
+
+        if (isNaN(currentValue) || isNaN(previousValue)) return;
+
+        switch (this.operation) {
+            case '+':
+                computationResult = previousValue + currentValue;
+                break;
+            case '-':
+                computationResult = previousValue - currentValue;
+                break;
+            case '*':
+                computationResult = previousValue * currentValue;
+                break;
+            case '÷':
+                computationResult = previousValue / currentValue;
+                break;
+            default:
+                return;
+        }
+
+        this.currentOperand = computationResult;
+        this.operation = undefined;
+        this.previousOperand = '';
+    }
 
     updateDisplay() {
         this.currentOperandTextElem.innerHTML = this.currentOperand;
