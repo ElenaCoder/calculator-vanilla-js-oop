@@ -32,3 +32,8 @@ equalBtn.addEventListener('click', (btn) => {
     calculator.compute();
     calculator.updateDisplay();
 });
+
+allClearBtn.addEventListener('click', (btn) => {
+    calculator.clear();
+    calculator.updateDisplay();
+});
