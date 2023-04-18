@@ -11,6 +11,13 @@ const calculator = new Calculator(previousOperandTextElem, currentOperandTextEle
 // console.log(calculator);
 
 
+operatorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        calculator.chooseOperation(btn.innerText);
+        calculator.updateDisplay();
+    })
+})
+
 numberBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         calculator.appendNumber(btn.innerText);
