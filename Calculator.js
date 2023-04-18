@@ -5,31 +5,34 @@ class Calculator {
         this.clear();
     }
 
-    clear(){
-        this.currentOperand = "";
-        this.previousOperand = "";
+    clear() {
+        this.currentOperand = '';
+        this.previousOperand = '';
         this.operation = undefined;
     }
 
-    delete() {
-
-    }
+    delete() {}
 
     appendNumber(number) {
-        if(number === '.' && this.currentOperand.includes('.')) return;
-        this.currentOperand = this.currentOperand.toString() + number.toString();
+        if (number === '.' && this.currentOperand.includes('.')) return;
+        this.currentOperand =
+            this.currentOperand.toString() + number.toString();
     }
 
     chooseOperation(operation) {
+        if (this.currentOperand === '') return;
+        if (this.previousOperand !== '') {
+            this.compute();
+        }
         this.operation = operation;
-
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
     }
 
-    compute() {
-
-    }
+    compute() {}
 
     updateDisplay() {
         this.currentOperandTextElem.innerHTML = this.currentOperand;
+        this.previousOperandTextElem.innerHTML = this.previousOperand;
     }
 }
